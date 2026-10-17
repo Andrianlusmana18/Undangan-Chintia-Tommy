@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-cursive: 'Great Vibes', cursive;
+}
+
+.font-serif {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #f7f4ee;
+  color: #3b3531;
+  font-family: var(--font-jakarta);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f4ee;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4c5b3;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bfaea1;
+}
+
+/* Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+@keyframes float-petal {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(45px);
+    opacity: 0;
+  }
+}
+
+.petal-floating {
+  position: fixed;
+  top: -20px;
+  pointer-events: none;
+  z-index: 40;
+  animation: float-petal linear infinite;
+}
+
+/* Page Transition: Serene, crisp fade with micro-elevation (zero blur) */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Nav Active Glow Pulse */
+@keyframes navGlow {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(110, 61, 61, 0.35), 0 0 0 2px rgba(198, 168, 125, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(110, 61, 61, 0.5), 0 0 0 3px rgba(198, 168, 125, 0.6);
+  }
+}
+
+.animate-nav-glow {
+  animation: navGlow 3s ease-in-out infinite;
+}
+
+/* Arch Shape mask for couple photos */
+.arch-frame {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+/* Golden Shimmer line */
+@keyframes shimmerMove {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-gold {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+  background-size: 200% 100%;
+  animation: shimmerMove 3s infinite linear;
+}
+
+/* ========================================================
+   REFINED QUIET-LUXURY SCROLL REVEAL ANIMATIONS
+   Clean, silk-smooth, zero-blur, harmonious upward glide
+   ======================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Visual harmony aliases: all cards glide upward naturally */
+.scroll-reveal-scale,
+.scroll-reveal-left,
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-scale.is-visible,
+.scroll-reveal-left.is-visible,
+.scroll-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle stagger delays for sibling cards */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* ========================================================
+   CHOREOGRAPHED EDITORIAL TEXT & ORNAMENT REVEALS
+   Cascading typography & expanding golden dividers on scroll
+   ======================================================== */
+.scroll-reveal .anim-badge {
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+}
+
+.scroll-reveal.is-visible .anim-badge {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-reveal .anim-title {
+  opacity: 0;
+  transform: translateY(14px);
+  letter-spacing: 0.03em;
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.14s,
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.14s,
+              letter-spacing 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.14s;
+}
+
+.scroll-reveal.is-visible .anim-title {
+  opacity: 1;
+  transform: translateY(0);
+  letter-spacing: normal;
+}
+
+.scroll-reveal .anim-desc {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.24s,
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.24s;
+}
+
+.scroll-reveal.is-visible .anim-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal .anim-divider {
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.32s,
+              transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.32s;
+}
+
+.scroll-reveal.is-visible .anim-divider {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Subtle Royal Gold & Burgundy Luster for Hero Titles */
+@keyframes textLuster {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.luxury-gold-text {
+  background: linear-gradient(135deg, #64222A 0%, #8A333D 40%, #A68253 70%, #64222A 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textLuster 7s ease-in-out infinite;
+}
+
+/* Gentle Medallion Breathing Float */
+@keyframes medallionFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-medallion-float {
+  animation: medallionFloat 4.5s ease-in-out infinite;
+}
+
+/* ========================================================
+   ROYAL INVITATION UNSEALING & CURTAIN REVEAL TRANSITION
+   Silky envelope lift & warm champagne veil reveal
+   ======================================================== */
+.cover-unseal-card {
+  transform: translateY(-34px) scale(0.975) !important;
+  opacity: 0 !important;
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.cover-unseal-quote {
+  transform: translateY(22px) scale(0.98) !important;
+  opacity: 0 !important;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.cover-unseal-crest {
+  transform: scale(1.1);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes invitationUnveil {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-invitation-unveil {
+  animation: invitationUnveil 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes veilDissolve {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-veil-dissolve {
+  animation: veilDissolve 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
