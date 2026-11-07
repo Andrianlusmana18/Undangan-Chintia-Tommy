@@ -32,16 +32,16 @@ export default function CeritaSection({ onNavigateNext }: CeritaSectionProps) {
       caption: "Kejutan Buket Bunga",
     },
     {
+      url: "/images/couple-batik-1.jpg",
+      caption: "Harmoni Kasih Sejati",
+    },
+    {
+      url: "/images/couple-batik-2.jpg",
+      caption: "Melangkah dalam Ridho-Nya",
+    },
+    {
       url: "/images/ring-exchange.jpg",
       caption: "Penyematan Cincin Suci",
-    },
-    {
-      url: "/images/ring-detail.jpg",
-      caption: "Ikatan Kasih Abadi",
-    },
-    {
-      url: "/images/ring-bw.jpg",
-      caption: "Sentuhan Kasih & Janji",
     },
     {
       url: "/images/couple.jpg",
@@ -158,16 +158,17 @@ export default function CeritaSection({ onNavigateNext }: CeritaSectionProps) {
               <div
                 className={`${
                   img.featured ? "aspect-[16/11]" : "aspect-[4/5]"
-                } overflow-hidden relative bg-stone-200`}
+                } overflow-hidden relative bg-[#F5ECE0]`}
               >
                 <img
                   src={img.url}
                   alt={img.caption}
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[1.02] contrast-[1.03]"
                 />
-                {/* Subtle luxury gradient & zoom badge */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-                <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/35 backdrop-blur-xs border border-white/40 flex items-center justify-center text-white opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                {/* Subtle zoom badge */}
+                <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/80 backdrop-blur-xs border border-[#DFCCA9] flex items-center justify-center text-[#64222A] shadow-2xs opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all">
                   <ZoomIn className="w-3.5 h-3.5" />
                 </div>
               </div>

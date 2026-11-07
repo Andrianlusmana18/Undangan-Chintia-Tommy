@@ -27,7 +27,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
     const audio = new Audio();
     audio.loop = true;
-    audio.preload = "auto";
+    audio.preload = "metadata";
 
     // Try local audio first, fallback to streaming if not found
     fetch(localSrc, { method: "HEAD" })

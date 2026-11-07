@@ -47,6 +47,27 @@ function WeddingInvitationContent() {
     }
   }, [guestQuery]);
 
+  // Preload all couple photos while the guest is viewing the Cover page
+  // so images appear instantaneously with zero black/blank delay when "Buka Undangan" is clicked
+  useEffect(() => {
+    const imageUrls = [
+      "/images/couple-front.jpg",
+      "/images/couple-flower.jpg",
+      "/images/couple-batik-1.jpg",
+      "/images/couple-batik-2.jpg",
+      "/images/ring-exchange.jpg",
+      "/images/couple.jpg",
+    ];
+    imageUrls.forEach((src, index) => {
+      const img = new window.Image();
+      if (index === 0) {
+        img.fetchPriority = "high";
+      }
+      img.decoding = "async";
+      img.src = src;
+    });
+  }, []);
+
   // Scroll-Spy: automatically update active navbar tab as user scrolls down/up
   useEffect(() => {
     if (!isOpened) return;

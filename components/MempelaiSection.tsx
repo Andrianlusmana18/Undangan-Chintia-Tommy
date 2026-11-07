@@ -129,16 +129,18 @@ export default function MempelaiSection({
             <div className="p-1 rounded-t-full rounded-b-xl border border-[#C6A87D]/80 bg-white/70 shadow-inner">
               
               {/* Layer 3: The Arch Photo Window */}
-              <div className="w-full aspect-[3/4.1] rounded-t-full rounded-b-lg overflow-hidden relative bg-stone-200 shadow-md">
+              <div className="w-full aspect-[3/4.1] rounded-t-full rounded-b-lg overflow-hidden relative bg-[#F5ECE0] shadow-md">
                 <img
                   src="/images/couple-front.jpg"
                   alt={WEDDING_DATA.general.coupleShort}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover object-[center_18%] group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[1.03] contrast-[1.04] saturate-[1.06]"
                 />
                 
-                {/* Cinematic Romantic Vignette & Shadow Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/5 pointer-events-none" />
-                <div className="absolute inset-0 shadow-[inset_0_0_35px_rgba(80,40,40,0.3)] pointer-events-none rounded-t-full" />
+                {/* Subtle Warm Inner Frame Rim (No dark black overlay) */}
+                <div className="absolute inset-0 shadow-[inset_0_0_18px_rgba(198,168,125,0.25)] pointer-events-none rounded-t-full" />
                 
                 {/* Subtle Glass Shimmer Beam */}
                 <div className="absolute -inset-full w-[300%] h-[300%] bg-gradient-to-tr from-transparent via-white/15 to-transparent rotate-12 pointer-events-none" />

@@ -19,6 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        <link rel="preload" as="image" href="/images/couple-front.jpg" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/couple-flower.jpg" />
+        <link rel="preload" as="image" href="/images/couple-batik-1.jpg" />
+        <link rel="preload" as="image" href="/images/couple-batik-2.jpg" />
+      </head>
       <body className="antialiased min-h-screen selection:bg-wedding-rose/20 selection:text-wedding-rose">
         {children}
       </body>
